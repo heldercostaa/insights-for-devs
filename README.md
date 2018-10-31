@@ -1,6 +1,6 @@
 # Gerando Insights para Devs
-> Helder Costa, Karlos Italo, Lucas Fernandes
-> Visualização de Dados 
+> Helder Costa, Karlos Italo, Lucas Fernandes  
+> Visualização de Dados  
 > Universidade Federal do Ceará - UFC  
 > Docente: [Emanuele Santos](https://emanueles.github.io/)  
 
