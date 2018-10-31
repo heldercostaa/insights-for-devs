@@ -9,7 +9,7 @@ Esse é um site interativo desenvolvido para a disciplina de Visualização de D
 Um grafo também é mostrado onde pode-se visualizar **linguagens de programação e seus relacionamentos** umas com as outras, ou seja, como e quão próximo elas estão conectadas e relacionadas entre si.
 
 ### Tecnologias
-As tecnologias que foram utilizadas usar para construir o projeto são as básicas para desenvolvimento web: HTML, CSS e JavaScript, com hospedagem no GitHub pages. Além disso, para facilitar geração interativa dos gráficos e do grafo, as bibliotecas d3 e dc foram usadas na geração dos scripts. Também a biblioteca Wow.js para programar o surgimento dinâmico dos elementos.
+As tecnologias que foram utilizadas usar para construir o projeto são as básicas para desenvolvimento web: **HTML, CSS e JavaScript**, com hospedagem no GitHub pages. Além disso, para facilitar geração interativa dos gráficos e do grafo, as bibliotecas **d3 e dc** foram usadas na geração dos scripts. Também a biblioteca **Wow.js** para programar o surgimento dinâmico dos elementos.
 
 <!-- 
     Para saber mais sobre a sintaxe markdown, veja [este guia](https://guides.github.com/features/mastering-markdown/). 
