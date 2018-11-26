@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+<div id="chart"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+<script src="http://unpkg.com/dc@3/dc.js"></script>
+<script>
+
+let chart = dc.lineChart("#chart");
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal();
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(d3.format(".2s"));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("data/survey_results_public_1.csv", function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) { 
+      if(d.ConvertedSalary=="NA") d.ConvertedSalary = 0;
+      else d.ConvertedSalary = +d.ConvertedSalary;
+    });
+
+  var facts = crossfilter(data);
+  var companyDim = facts.dimension(function(d) {
+    return d.CompanySize;
+  })
+
+  var salaryGroup = companyDim.group().reduceSum(function(d) {
+    return +d.ConvertedSalary;
+  });
+
+  var companyAccessor = function(d) {
+    return d.value;
+  }
+
+  var salaryAccessor = function(d) {
+    return d.value;
+  }
+
+  var filteredData = salaryGroup.all();
+  console.log('filteredData', filteredData);
+
+  var companies = d3.set(filteredData.map(companyAccessor));
+  var maxSalary = d3.max(filteredData.map(salaryAccessor));
+  console.log(maxSalary);
+
+  x.domain(companies);
+  y.domain([0, maxSalary]);
+
+
+  /*var nestedData = d3.nest()
+    .key(companyAccessor)
+    .rollup(function(d) {
+      return {"value": salaryAccessor(d)};
+    })
+    .entries(filteredData);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Salary");
+
+  var company = svg.selectAll(".companies")
+      .data(nestedData)
+    .enter().append("g")
+      .attr("class", "g")
+      .attr("transform", function(d) { return "translate(" + x(d.key) + ",0)"; });
+
+  
+  company.selectAll("rect")
+      .data(function(d) { return d.values } )
+    .enter().append("rect")
+      .attr("width", x.rangeBand())
+      .attr("x", function(d) { console.log((d.values.value)); return x( d.key ); })
+      .attr("y", function(d) { return y(d.values.value); })
+      .attr("height", function(d) { return height - y(d.values.value); })
+      .style("fill", function(d) { return color(d.key); });
+
+  /*var legend = svg.selectAll(".legend")
+      .data(ageNames.slice().reverse())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; }); */
+
+  chart
+    .width(768)
+    .height(480)
+    .x(d3.scaleBand().domain(companies))
+    .curve(d3.curveStepBefore)
+    .renderArea(true)
+    .brushOn(false)
+    .renderDataPoints(true)
+    .clipPadding(10)
+    .yAxisLabel("This is the Y Axis!")
+    .dimension(companyDim)
+    .group(salaryGroup);
+  chart.render();
+});
+
+</script>

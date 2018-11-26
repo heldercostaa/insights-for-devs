@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		crossorigin=""></script>	
+		
+    <title> Teste com mapa</title>
+
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" href="css/dc.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/crossfilter.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/dc.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+
+</head>
+<body>
+  <main role="main" class="container">
+  	<h1>Teste com mapa</h1>
+    <div class='row'>
+    	<div id='mapid' class="col-6">
+	    </div>
+    </div>
+
+	</div>
+  </main>
+  <script type="text/javascript">
+	// Create the dc.js chart objects & link to div
+	let map = L.map('mapid').setView([41.750538141,-87.634278086], 9);
+	L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+	attribution: "Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.",
+	maxZoom: 17
+	}).addTo(map);
+
+	var svg = d3.select(map.getPanes().overlayPane).append("svg"),
+    g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+    d3.json("data/countries.geo.json", function(error, collection) {
+		if (error) throw error;
+		var transform = d3.geoTransform({point: projectPoint}),
+    path = d3.geoPath().projection(transform);
+
+    var feature = g.selectAll("path")
+	    .data(collection.features)
+	  .enter().append("path");
+	
+	feature.attr("d", path);
+
+	var bounds = path.bounds(collection),
+	    topLeft = bounds[0],
+	    bottomRight = bounds[1];
+
+	svg .attr("width", bottomRight[0] - topLeft[0])
+	    .attr("height", bottomRight[1] - topLeft[1])
+	    .style("left", topLeft[0] + "px")
+	    .style("top", topLeft[1] + "px");
+
+	g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+	});
+
+    function projectPoint(x, y) {
+	  var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+	  this.stream.point(point.x, point.y);
+	}
+
+	
+
+
+	</script>
+	 <!-- Bootstrap javascript files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		
+</body>
+</html>
