@@ -75,6 +75,8 @@ h3 {
 }
 
 h4 {
+	margin-top: 25px;
+    margin-bottom: 15px;
     font-size: 18px;
 }
 
@@ -1748,4 +1750,20 @@ header {
 
 .text-justifyt {
     text-align: justify;
+}
+
+#network svg{
+	margin-top: 20px;
+	/*width: 50%;*/
+}
+
+line.link {
+	fill: none;
+	stroke: #eee;
+	stroke-opacity: 0.8;
+	stroke-width: 1.5px;
+}
+
+.text-indent {
+	text-indent: 3em;
 }

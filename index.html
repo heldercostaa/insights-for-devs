@@ -64,7 +64,7 @@
                     <li><a href="#sobre">Sobre</a></li>
 					<li><a href="#insight1">Insight 1</a></li>
 					<li><a href="#insight2">Insight 2</a></li>
-					<li><a href="#insight3">Insight 3</a></li>
+					<li><a href="#insight3">Conexão de Linguagens</a></li>
 					<li><a href="#insight4">Insight 4</a></li>
 					<li><a href="#insight5">Insight 5</a></li>
 					<li><a href="#equipe">Equipe</a></li>
@@ -105,10 +105,6 @@
 
 			<!-- Row -->
 			<div class="row">
-
-				<!-- Section header -->
-				
-                <!-- /Section header -->
 
                 <div class="col-md-4">
                     <h3 class="text-center">Público Alvo</h3>
@@ -193,14 +189,32 @@
 		<div class="container">
 
 			<!-- Row -->
-			<div class="row">
+			<div class="row" id="row">
 
-				<!-- Section header -->
 				<div class="section-header text-center">
-					<h2 class="title">Insight 3</h2>
+					<h2 class="title">Conexão de Linguagens e Ferramentas</h2>
 				</div>
-				<!-- /Section header -->
-                
+
+				<div class="col-md-8">
+					<h4>Sobre</h4>
+					<p class="text-justify text-indent">Com tantas tecnologias e ferramentas disponíveis hoje para os desenvolvedores, é muito difícil decidir qual será o próximo passo para aprender uma nova tecnologia. Uma solução para isso pode ser querer aprender aquela tecnologia que se relaciona com as que você já possui mais conhecimento para, assim, ter um maior aperfeiçoamento naquilo que já trabalha.</p>
+					<p class="text-justify text-indent">Com isso em mente, abaixo está um grafo que relaciona e separa em grupos esse mundo de ferramentas disponíveis para os desenvolvedores. Com essa visualização, o desenvolvedor pode buscar aprender uma linguagem ou ferramenta relacionada com uma que já possui conhecimento.</p>
+					<h4>Insights</h4>
+					<p class="text-justify text-indent">O grafo é divido em 14 grupos separados por cor, como justificado na aba de Agrupamento e o tamanho de cada elemento está relacionado diretamente a quantidade de conexões que ele tem.</p>
+					<p class="text-justify text-indent">Assim, podemos tirar algumas conclusões facilmente: como percebendo que JavaScript é a linguagem com mais ligações e que está bastante (mas não somente) relacionada com linguagem e ferramentas front-end. Também percebemos facilmente todas as tecnlogias da Microsoft relacionadas (C#, .NET, Xamarin, VB.NET, SQL Server, etc). Também podemos ver as ligações dos Sistemas operacionais (Osx, Windows e Linux) e constatar que o Linux é a que mais possui conexões.</p>
+				</div>
+					
+				<div class="col-md-4">
+					<h3 class="text-center">Agrupamento</h3>
+					<p class="text-justify">&nbsp &nbsp O grafo está dividido em 14 grupos (separados por cor) e esse agrupamento foi feito através de uma técnica chamada Short Random Walks.</p>
+					<p class="text-justify">&nbsp &nbsp Essa técnica consiste em um algoritmo que busca achar clusters (comunidades) dentro de um grafo através de passeios aleatórios. A ideia é que pequenas caminhadas aleatórias dentro de um grafo tendem a permanecer na mesma comunidade.</p>
+					<div class="text-center"><a href="https://www-complexnetworks.lip6.fr/~latapy/Publis/communities.pdf" target="_blank">Mais sobre o algoritmo</a></div>
+				</div>
+
+				</div>
+
+				<div id='network'></div>
+
             </div>
             <!--/ Row -->
 				
@@ -385,9 +399,15 @@
 	<!-- /Back to top -->
 
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery/main.js"></script>
+
+	<!-- d3 Library -->
+	<script src='https://d3js.org/d3.v5.min.js'></script>
+
+	<!-- Graph Scripts -->
+	<script type="text/javascript" src="js/language_network.js"></script>
 
 </body>
 

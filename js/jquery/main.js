@@ -53,5 +53,5 @@
 		// Back To Top Appear
 		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
 	});
-
+	
 })(jQuery);
