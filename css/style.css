@@ -1752,9 +1752,8 @@ header {
     text-align: justify;
 }
 
-#network svg{
-	margin-top: 20px;
-	/*width: 50%;*/
+.label-info{
+	float: right;
 }
 
 line.link {
