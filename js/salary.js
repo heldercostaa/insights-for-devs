@@ -32,10 +32,12 @@ data.forEach(function(d){
 })
 console.log(n_bachelor)
 console.log(n_master)
+
 var facts = crossfilter(data);
 
 var companyDim = facts.dimension(function(d) {
- if (d.CompanySize!="NA") return d.CompanySize;
+ //console.log(d.CompanySize);
+ return d.CompanySize;
 });
 
 var bachelorGroup = companyDim.group().reduceSum(function(d) {
@@ -51,20 +53,21 @@ var salaryGroup = companyDim.group().reduceSum(function(d) {
   else return 0;
 });
 
-let companyScale = d3.scaleOrdinal()
+let companyScale = d3.scaleBand()
         .domain(["Fewer than 10 employees", "10 to 19 employees", "20 to 99 employees", "100 to 499 employees", "500 to 999 employees", "1,000 to 4,999 employees", "5,000 to 9,999 employees", "10,000 or more employees", "NA"])
         .range(["Menos de 10", "10-19", "20-99","100-499","500-999","1000-4999","5000-9999","Mais de 10000", "NA"]);
 var companyAccessor = function(d) {
   return d.value;
 }
 var filteredData = bachelorGroup.all();
+filteredData.pop(8,9);
   console.log('filteredData', filteredData);
 var companies = d3.set(filteredData.map(companyAccessor));
 compositeChart.width(1200)
          .height(400)
          .margins({top: 50, right: 50, bottom: 50, left: 75})
          .dimension(companyDim)
-         .x(d3.scaleBand())
+         .x(companyScale)//d3.scaleBand())
            // .range(["Menos de 10", "10-19", "20-99","100-499","500-999","1000-4999","5000-9999","Mais de 10000", "NA"]))
          .xUnits(dc.units.ordinal)
          .y(d3.scaleLinear().domain([70000,140000]))
@@ -72,7 +75,7 @@ compositeChart.width(1200)
          .xAxisLabel("Company size")
          .yAxisLabel("Salary (average)")
          .legend(dc.legend().x(1000).y(30).itemHeight(13).gap(5))
-         .brushOn(false)  
+         .brushOn(false)
          .group(bachelorGroup)  
         .compose([
             dc.lineChart(compositeChart)
