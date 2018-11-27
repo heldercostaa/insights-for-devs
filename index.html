@@ -65,7 +65,7 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
                     <li><a data-aos="fade-down" data-aos-delay="0" href="#inicio">Inicio</a></li>
                     <li><a data-aos="fade-down" data-aos-delay="50" href="#sobre">Sobre</a></li>
-					<li><a data-aos="fade-down" data-aos-delay="100" href="#insight1">Insight 1</a></li>
+					<li><a data-aos="fade-down" data-aos-delay="100" href="#insight1">Os impactos no salário</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="150" href="#insight2">Insight 2</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="200" href="#insight3">Conexão de Linguagens</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="250" href="#insight4">Insight 4</a></li>
@@ -148,9 +148,15 @@
 
 				<!-- Section header -->
 				<div class="section-header text-center">
-					<h2 class="title">Insight 1</h2>
+					<h2 class="title">Os impactos na remuneração</h2>
 				</div>
                 <!-- /Section header -->
+                <div class="col-md-12">
+					<h4 data-aos="fade-up" data-aos-delay="100" class="text-center">Sobre</h4>
+					<p data-aos="fade-up" data-aos-delay="150" class="text-justify text-indent">Uma das primeiras dúvidas que surgem naqueles que desejam se aventurar no mercado de desenvolvimento é sobre que caminho trilhar para se consolidar como profissional. Uma decisão importante é que tipo de formação se deve ter e um questionamento pertinente é onde trabalhar, utilizando o salário como parâmetro. </p>
+					<p data-aos="fade-up" data-aos-delay="200" class="text-justify text-indent">Para solucionar algumas dessas questões, abaixo está um grafíco de linha que relaciona o tamanho da empresa que o desenvolvedor trabalha com a média salarial anual em doláres americanos, dividindo-se entre as formações de bacharel, mestre e outros, que inclui principalmente quem não tem formação superior. </p>
+				</div>
+				<div data-aos="fade-up" data-aos-delay="300" id="chart-salary"></div>
                 
             </div>
             <!--/ Row -->
@@ -416,6 +422,20 @@
 	<!-- Graph Scripts -->
 	<script type="text/javascript" src="js/language_network.js"></script>
 
+	<!-- DC and crossfilter scripts -->
+	<script type="text/javascript" src="js/crossfilter.min.js"></script>
+	<script type="text/javascript" src="js/dc.min.js"></script>
+
+	<!-- Salary chart script -->
+	<script type="text/javascript" src="js/salary.js"></script>
+
+	<!-- Salary chart path correction -->
+	<style>
+         path.line {
+         fill: none;
+         stroke-width: 1.5px;
+         }
+  	</style>
 
 </body>
 
