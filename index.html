@@ -65,8 +65,8 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
                     <li><a data-aos="fade-down" data-aos-delay="0" href="#inicio">Inicio</a></li>
                     <li><a data-aos="fade-down" data-aos-delay="50" href="#sobre">Sobre</a></li>
-					<li><a data-aos="fade-down" data-aos-delay="100" href="#insight1">Os impactos no salário</a></li>
-					<li><a data-aos="fade-down" data-aos-delay="150" href="#insight2">Insight 2</a></li>
+					<li><a data-aos="fade-down" data-aos-delay="100" href="#insight1">Os desenvolvedores mais populares</a></li>
+					<li><a data-aos="fade-down" data-aos-delay="150" href="#insight2">Os impactos no salário</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="200" href="#insight3">Conexão de Linguagens</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="250" href="#insight4">Insight 4</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="300" href="#insight5">Insight 5</a></li>
@@ -142,7 +142,34 @@
 
 		<!-- Container -->
 		<div class="container">
+			<!-- Row -->
+			<div class="row">
 
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Os desenvolvedores mais populares</h2>
+				</div>
+				<!-- /Section header -->
+                <div class="col-md-12">
+					<h4 data-aos="fade-up" data-aos-delay="200" class="text-center">Sobre</h4>
+					<p data-aos="fade-up" data-aos-delay="250" class="text-justify text-indent">O mercado de Tecnologia da Informação é amplo e existe uma grande diversidade de desenvolvedores, que trabalham em áreas ou segmentos específicos. Entretanto, alguns tipos de desenvolvedor são mais populares do que outros.</p>
+					<p data-aos="fade-up" data-aos-delay="300" class="text-justify text-indent">Pensando em ter um panorama dessa diversidade, o gráfico de barras abaixo elenca os dez tipos de desenvolvedores mais populares. </p>
+				</div>
+				<div data-aos="fade-up" data-aos-delay="400" id="devtype-chart"></div>
+            </div>
+            <!--/ Row -->
+				
+		</div>
+		<!-- /Container -->
+
+    </div>
+    <!-- /Insight 1 -->
+    
+    <!-- Insight 2 -->
+	<div id="insight2" class="section md-padding bg-grey">
+
+		<!-- Container -->
+		<div class="container">
 			<!-- Row -->
 			<div class="row">
 
@@ -160,30 +187,7 @@
                 
             </div>
             <!--/ Row -->
-				
-		</div>
-		<!-- /Container -->
-
-    </div>
-    <!-- /Insight 1 -->
-    
-    <!-- Insight 2 -->
-	<div id="insight2" class="section md-padding bg-grey">
-
-		<!-- Container -->
-		<div class="container">
-
-			<!-- Row -->
-			<div class="row">
-
-				<!-- Section header -->
-				<div class="section-header text-center">
-					<h2 class="title">Insight 2</h2>
-				</div>
-				<!-- /Section header -->
-                
-            </div>
-            <!--/ Row -->
+			
 				
 		</div>
 		<!-- /Container -->
@@ -428,6 +432,9 @@
 
 	<!-- Salary chart script -->
 	<script type="text/javascript" src="js/salary.js"></script>
+
+	<!-- Dev type chart script -->
+	<script type="text/javascript" src="js/dev.js"></script>
 
 	<!-- Salary chart path correction -->
 	<style>
