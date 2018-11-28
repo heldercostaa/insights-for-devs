@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 	<title>Gerando insights para devs</title>
 
 	<!-- Google font -->
@@ -23,6 +22,10 @@
 
 	<!-- Aos css -->
 	<link type="text/css" rel="stylesheet" href="css/lib/aos.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+    <link rel="stylesheet" type="text/css" href="css/sequences.css"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,7 +71,7 @@
 					<li><a data-aos="fade-down" data-aos-delay="100" href="#insight1">Os desenvolvedores mais populares</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="150" href="#insight2">Os impactos no salário</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="200" href="#insight3">Conexão de Linguagens</a></li>
-					<li><a data-aos="fade-down" data-aos-delay="250" href="#insight4">Insight 4</a></li>
+					<li><a data-aos="fade-down" data-aos-delay="250" href="#insight4">O que os desenvolvedores procuram</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="300" href="#insight5">Insight 5</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="350" href="#equipe">Equipe</a></li>
 				</ul>
@@ -249,11 +252,24 @@
 
 				<!-- Section header -->
 				<div class="section-header text-center">
-					<h2 class="title">Insight 4</h2>
+					<h2 class="title">O que os desenvolvedores procuram</h2>
 				</div>
 				<!-- /Section header -->
                 
             </div>
+            <div id="main">
+		      <div id="sequence"></div>
+		      	<div id="chart">
+		        	<div id="explanation" style="visibility: hidden;">
+		         	 <span id="percentage"></span><br/>
+		          		dos desenvovedores priorizam os atributos nesta sequência
+		        	</div>
+  				</div>
+   		 	</div>
+		    <div id="sidebar">
+		      <input type="checkbox" id="togglelegend"> Legend<br/>
+		      <div id="legend" style="visibility: hidden;"></div>
+		    </div>
             <!--/ Row -->
 				
 		</div>
@@ -421,7 +437,14 @@
 	</script>
 
 	<!-- d3 Library -->
-	<script type="text/javascript" src="js/lib/d3.min.js"></script>
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script>
+    	d3Old = d3
+    	window.d3 = null
+  	</script>
+
+  	<script type="text/javascript" src="js/lib/d3.min.js"></script>	
+	<!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
 
 	<!-- Graph Scripts -->
 	<script type="text/javascript" src="js/language_network.js"></script>
@@ -431,10 +454,10 @@
 	<script type="text/javascript" src="js/dc.min.js"></script>
 
 	<!-- Salary chart script -->
-	<script type="text/javascript" src="js/salary.js"></script>
+  <script type="text/javascript" src="js/salary.js"></script>
 
-	<!-- Dev type chart script -->
-	<script type="text/javascript" src="js/dev.js"></script>
+  <!-- Dev type chart script -->
+  <script type="text/javascript" src="js/dev.js"></script>
 
 	<!-- Salary chart path correction -->
 	<style>
@@ -444,6 +467,10 @@
          }
   	</style>
 
+  	<!-- Sunburs chart  script -->
+  	<!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+
+  	 <script type="text/javascript" src="js/sequences.js"></script>
 </body>
 
 </html>
