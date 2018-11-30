@@ -1766,3 +1766,7 @@ line.link {
 .text-indent {
 	text-indent: 3em;
 }
+
+.dc-chart #g {
+	transform: translate(100px,150px);
+}

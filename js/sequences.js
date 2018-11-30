@@ -244,14 +244,13 @@ function addMeaning(numero){
     }else{
         return null;  
     }
-    
 }
 
 function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 350, h: 30, s: 3, r: 3
+    w: 360, h: 30, s: 3, r: 3
   };
 
   var legend = d3Old.select("#legend").append("svg:svg")
@@ -277,7 +276,8 @@ function drawLegend() {
       .attr("y", li.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
-      .text(function(d) { return d.key+" - "+addMeaning(d.key); });
+      .text(function(d) { return d.key+" - "+addMeaning(d.key); })
+      .style("font-size",'12px');
 }
 
 function toggleLegend() {

@@ -26,7 +26,7 @@ function makeNetwork() {
 	const width = document.getElementById('row').offsetWidth;
 	const height = width/2;
 
-	const radius = 20;
+	const radius = (20*width)/1170;
 
 	// Create svg element inside #vis element and attribute it to the vis variable
 	const network = d3.select('#network')
@@ -61,7 +61,7 @@ function makeNetwork() {
 		});
 
 		let circleRadius = d3.scaleSqrt()
-							.range([5,20])
+							.range([5,radius])
 							.domain(countExtent);
 
 		// create node svg elements

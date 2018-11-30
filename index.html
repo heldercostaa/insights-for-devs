@@ -23,8 +23,6 @@
 	<!-- Aos css -->
 	<link type="text/css" rel="stylesheet" href="css/lib/aos.css" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
     <link rel="stylesheet" type="text/css" href="css/sequences.css"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -72,7 +70,6 @@
 					<li><a data-aos="fade-down" data-aos-delay="150" href="#insight2">Os impactos no salário</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="200" href="#insight3">Conexão de Linguagens</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="250" href="#insight4">O que os desenvolvedores procuram</a></li>
-					<li><a data-aos="fade-down" data-aos-delay="300" href="#insight5">Insight 5</a></li>
 					<li><a data-aos="fade-down" data-aos-delay="350" href="#equipe">Equipe</a></li>
 				</ul>
 				<!-- /Main navigation -->
@@ -122,7 +119,7 @@
                         <h2 class="title">Descrição do Projeto</h2>
                     </div>
                     <p data-aos="fade-up" data-aos-delay="200" class="text-justify">&nbsp &nbsp Esse é um site interativo desenvolvido para a disciplina de Visualização de Dados da Universidade Federal do Ceará, que tem como objetivo <strong>promover insights para a comunidade de desenvolvedores</strong> sobre o mercado de trabalho em Tecnologia da Informação, mais especificamente em <strong>desenvolvimento de software</strong>, fornecendo informações sobre as <strong>áreas de atuação</strong> dos desenvolvedores (juntamente com o seu perfil) e as <strong>tecnologias</strong> que envolvem essa área através da contagem de histórias.</p>
-                    <p data-aos="fade-up" data-aos-delay="300" class="text-justify">&nbsp &nbsp Um grafo também é mostrado onde pode-se visualizar <strong>linguagens de programação e seus relacionamentos</strong> umas com as outras, ou seja, como e quão próximo elas estão conectadas e relacionadas entre si.</p>
+                    <p data-aos="fade-up" data-aos-delay="250" class="text-justify">&nbsp &nbsp Um grafo também é mostrado onde pode-se visualizar <strong>linguagens de programação e seus relacionamentos</strong> umas com as outras, ou seja, como e quão próximo elas estão conectadas e relacionadas entre si.</p>
                 </div>
 
                 <div class="col-md-4">
@@ -149,16 +146,16 @@
 			<div class="row">
 
 				<!-- Section header -->
-				<div class="section-header text-center">
+				<div data-aos="fade-up" data-aos-delay="0" class="section-header text-center">
 					<h2 class="title">Os desenvolvedores mais populares</h2>
 				</div>
 				<!-- /Section header -->
                 <div class="col-md-12">
-					<h4 data-aos="fade-up" data-aos-delay="200" class="text-center">Sobre</h4>
-					<p data-aos="fade-up" data-aos-delay="250" class="text-justify text-indent">O mercado de Tecnologia da Informação é amplo e existe uma grande diversidade de desenvolvedores, que trabalham em áreas ou segmentos específicos. Entretanto, alguns tipos de desenvolvedor são mais populares do que outros.</p>
-					<p data-aos="fade-up" data-aos-delay="300" class="text-justify text-indent">Pensando em ter um panorama dessa diversidade, o gráfico de barras abaixo elenca os dez tipos de desenvolvedores mais populares. </p>
+					<h4 data-aos="fade-up" data-aos-delay="100" class="text-center">Sobre</h4>
+					<p data-aos="fade-up" data-aos-delay="150" class="text-justify text-indent">O mercado de Tecnologia da Informação é amplo e existe uma grande diversidade de desenvolvedores, que trabalham em áreas ou segmentos específicos. Entretanto, alguns tipos de desenvolvedor são mais populares do que outros.</p>
+					<p data-aos="fade-up" data-aos-delay="200" class="text-justify text-indent">Pensando em ter um panorama dessa diversidade, o gráfico de barras abaixo elenca os dez tipos de desenvolvedores mais populares. </p>
 				</div>
-				<div data-aos="fade-up" data-aos-delay="400" id="devtype-chart"></div>
+				<div data-aos="fade-up" data-aos-delay="250" id="devtype-chart"></div>
             </div>
             <!--/ Row -->
 				
@@ -177,7 +174,7 @@
 			<div class="row">
 
 				<!-- Section header -->
-				<div class="section-header text-center">
+				<div data-aos="fade-up" data-aos-delay="0" class="section-header text-center">
 					<h2 class="title">Os impactos na remuneração</h2>
 				</div>
                 <!-- /Section header -->
@@ -251,13 +248,17 @@
 			<div class="row">
 
 				<!-- Section header -->
-				<div class="section-header text-center">
+				<div data-aos="fade-up" data-aos-delay="0" class="section-header text-center">
 					<h2 class="title">O que os desenvolvedores procuram</h2>
 				</div>
 				<!-- /Section header -->
                 
             </div>
-            <div id="mainSun">
+            <h4 data-aos="fade-up" data-aos-delay="100" class="text-center">Sobre</h4>
+					<p data-aos="fade-up" data-aos-delay="150" class="text-justify text-indent">Esta seção tem como objetivo analisar as preferências dos desenvolvedores quanto aos atributos a serem analisados na escolha de um novo emprego. </p>
+					<p data-aos="fade-up" data-aos-delay="200" class="text-justify text-indent">Supondo que estariam avaliando uma oportunidade de trabalho em potencial, os desenvovedores ranquearam os aspectos desta oportunidade em ordem de importância. </p>
+
+            <div class="col-md-6" id="mainSun">
 		      <div id="sequence"></div>
 		      	<div id="chart">
 		        	<div id="explanation" style="visibility: hidden;">
@@ -266,42 +267,33 @@
 		        	</div>
   				</div>
 		    </div>
-		    <div id="sidebar">
-		      		<input type="checkbox" id="togglelegend"> Legend<br/>
-		     	 <div id="legend" style="visibility: hidden;"></div>
+
+		    <div class="col-md-6" id="sidebar">
+				<input data-aos="fade-up" data-aos-delay="0" type="checkbox" id="togglelegend"> Esconder<br/>
+		     	<div data-aos="fade-up" data-aos-delay="100" id="legend"></div>
    		 	</div>
 
-            <!--/ Row -->
+				</div>
 				
-		</div>
+            <!--/ Row -->	
+			</div>
+			<div class="container">
+				<h4 data-aos="fade-up" data-aos-delay="0" class="text-center">Segue uma possível explicação do resultado baseado na análise de perfil dos desenvolvedores</h4>
+				<div data-aos="fade-up" data-aos-delay="100" class="col-md-12" id = "age">
+				</div>
+				<div data-aos="fade-up" data-aos-delay="150" class="col-md-12" id = "years">
+				</div>
+				<div data-aos="fade-up" data-aos-delay="200" class="col-md-12" id = "hobby">
+				</div>
+				<div data-aos="fade-up" data-aos-delay="250" class="col-md-12" id = "carreer">
+				</div>
+				<div data-aos="fade-up" data-aos-delay="300" class="col-md-12" id = "five">
+				</div>
+			</div>
 		<!-- /Container -->
 
 	</div>
     <!-- /Insight 4 -->
-
-    <!-- Insight 5 -->
-	<div id="insight5" class="section md-padding bg-grey">
-
-		<!-- Container -->
-		<div class="container">
-
-			<!-- Row -->
-			<div class="row">
-
-				<!-- Section header -->
-				<div class="section-header text-center">
-					<h2 class="title">Insight 5</h2>
-				</div>
-				<!-- /Section header -->
-                
-            </div>
-            <!--/ Row -->
-				
-		</div>
-		<!-- /Container -->
-
-	</div>
-    <!-- /Insight 5 -->
 
 	<!-- Equipe -->
 	<div id="equipe" class="section md-padding bg-grey">
@@ -426,6 +418,11 @@
 	<div id="back-to-top"></div>
 	<!-- /Back to top -->
 
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script>
+    	d3Old = d3
+    	window.d3 = null
+  	</script>
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -438,11 +435,6 @@
 	</script>
 
 	<!-- d3 Library -->
-	<script src="//d3js.org/d3.v3.min.js"></script>
-	<script>
-    	d3Old = d3
-    	window.d3 = null
-  	</script>
 
   	<script type="text/javascript" src="js/lib/d3.min.js"></script>	
 	<!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
@@ -472,6 +464,7 @@
   	<!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
 
   	 <script type="text/javascript" src="js/sequences.js"></script>
+  	 <script type="text/javascript" src="js/pie.js"></script>
 </body>
 
 </html>

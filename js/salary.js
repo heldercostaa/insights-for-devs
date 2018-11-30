@@ -40,8 +40,8 @@ data.forEach(function(d){
     if (d.FormalEducation!='Master’s degree (MA, MS, M.Eng., MBA, etc.)'&&d.FormalEducation!='Bachelor’s degree (BA, BS, B.Eng., etc.)' && d.ConvertedSalary != 0) 
         n_others[d.CompanySize] = n_others[d.CompanySize] + 1;
 })
-console.log(n_bachelor)
-console.log(n_master)
+// console.log(n_bachelor)
+// console.log(n_master)
 
 var facts = crossfilter(data);
 
@@ -74,7 +74,7 @@ var filteredData2 = masterGroup.all();
 filteredData2.pop(8,9);
 var filteredData3 = salaryGroup.all();
 filteredData3.pop(8,9);
-  console.log('filteredData', filteredData);
+//console.log('filteredData', filteredData);
 var companies = d3.set(filteredData.map(companyAccessor));
 compositeChart.width(1200)
          .height(400)
