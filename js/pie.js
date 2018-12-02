@@ -27,8 +27,6 @@ d3.csv("data/data_pie.csv").then(function(data) {
     return d.HopeFiveYears;})
       fiveSumGroup = fiveDimension.group().reduceSum(function(d) {return 1;});
 
-
-
   chart
     .width(width)
     .height(height)
@@ -39,6 +37,7 @@ d3.csv("data/data_pie.csv").then(function(data) {
     //.cx(140)
     //.cy(140)
     .externalLabels(30)
+    .slicesCap(4)
 	.legend(dc.legend().x((width/2)+150).y(10))
     .on('pretransition', function(chart) {
         chart.selectAll('text.pie-slice').text(function(d) {
@@ -50,6 +49,7 @@ d3.csv("data/data_pie.csv").then(function(data) {
         })
 	});
 
+
     chart2
     .width(width)
     .height(height)
@@ -59,6 +59,7 @@ d3.csv("data/data_pie.csv").then(function(data) {
     .group(yearsSumGroup)
     //.cx(400)
     //.cy(300)
+    .slicesCap(7)
 	.externalLabels(30)
 	.legend(dc.legend().x((width/2)+150).y(10))
     .on('pretransition', function(chart) {
@@ -107,6 +108,7 @@ d3.csv("data/data_pie.csv").then(function(data) {
     .group(fiveSumGroup)
     //.cx(400)
     //.cy(380)
+    .slicesCap(5)
     .externalLabels(30)
 	.legend(dc.legend().x((width/2)+150).y(10))
     .on('pretransition', function(chart) {
@@ -121,4 +123,3 @@ d3.csv("data/data_pie.csv").then(function(data) {
   chart4.render();
   chart5.render();
 });
-

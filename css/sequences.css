@@ -12,7 +12,9 @@
 }
 */
 #sidebar {
-	padding-left: 150px;
+  position: relative;
+  left:150px;
+	/*padding-left: 150px;*/
 	top: 50px;
 }
 

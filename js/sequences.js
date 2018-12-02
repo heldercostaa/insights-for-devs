@@ -69,9 +69,9 @@ function createVisualization(json) {
       return (d.dx > 0.005); // 0.005 radians = 0.29 degrees
       });
 
-  var path = vis.data([json]).selectAll("path")
+  var path = vis.data([json]).selectAll("path.sunB")
       .data(nodes)
-      .enter().append("svg:path")
+      .enter().append("svg:path").attr("class","sunB")
       .attr("display", function(d) { return d.depth ? null : "none"; })
       .attr("d", arc)
       .attr("fill-rule", "evenodd")
@@ -105,11 +105,11 @@ function mouseover(d) {
   updateBreadcrumbs(sequenceArray, percentageString);
 
   // Fade all the segments.
-  d3Old.selectAll("path")
+  d3Old.selectAll("path.sunB")
       .style("opacity", 0.3);
 
   // Then highlight only those that are an ancestor of the current segment.
-  vis.selectAll("path")
+  vis.selectAll("path.sunB")
       .filter(function(node) {
                 return (sequenceArray.indexOf(node) >= 0);
               })
@@ -124,10 +124,10 @@ function mouseleave(d) {
       .style("visibility", "hidden");
 
   // Deactivate all segments during transition.
-  d3Old.selectAll("path").on("mouseover", null);
+  d3Old.selectAll("path.sunB").on("mouseover", null);
 
   // Transition each segment to full opacity and then reactivate it.
-  d3Old.selectAll("path")
+  d3Old.selectAll("path.sunB")
       .transition()
       .duration(1000)
       .style("opacity", 1)
@@ -145,9 +145,11 @@ function getAncestors(node) {
   var path = [];
   var current = node;
   while (current.parent) {
+  	//console.log(current);
     path.unshift(current);
     current = current.parent;
   }
+  console.log(current);
   return path;
 }
 
